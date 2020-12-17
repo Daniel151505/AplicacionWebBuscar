@@ -1,8 +1,47 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<Formulario>
+
+@{
+    ViewData["Title"] = "Productos Registrados";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="productos">
+<div class="container">
+<div class="row"> 
+  <div class="productos-a">
+  <div class="productos-content">
+ 
+    @if(@Model.Count>0){
+        <div class="row">
+            @foreach (var formulario in Model)
+            {
+                <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                <div class="card-body" style="text-align: center;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" style="color: black;"><h4 style="color: black;">Nombre: </h4>@formulario.Nombre</li>
+                        <li class="list-group-item" style="color: black;"><h4 style="color: black;">Descripción: </h4>@formulario.Descripcion</li>
+                        <li class="list-group-item" style="color: black;"><h4 style="color: black;">URL Foto: </h4>@formulario.Url</li>
+                        <li class="list-group-item" style="color: black;"><h4 style="color: black;">Precio: </h4>@formulario.Precio</li>
+                        <li class="list-group-item" style="color: black;"><h4 style="color: black;">Celular: </h4>@formulario.Celular</li>
+                        <li class="list-group-item" style="color: black;"><h4 style="color: black;">Lugar: </h4>@formulario.Lugar</li>
+                        <li class="list-group-item" style="color: black;"><h4 style="color: black;">Usuario: </h4>@formulario.NomUsu</li>
+                    </ul>
+                </div>
+                </div>
+                </div>
+                <br>
+            }
+        </div>
+    }else{
+       
+                        <section style="padding:150px">
+                        <h1  class="font-weight-bold" style="align-content: center; color: white;">No encontramos ningun producto </h1>
+                        <h1  class="font-weight-bold" style="color: white;">Regisra un producto ahora</h1><a asp-controller="Home" asp-action="Formulario" ><button class="btn btn-primary width-100" type="submit" style="background-color: #00488F;">Click Aquí</button></a>
+                        </section>
+                 
+    }
+    </div>
+    </div>
+</div>
+</div>
 </div>
