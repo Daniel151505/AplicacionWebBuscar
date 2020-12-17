@@ -5,22 +5,41 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+
 using AplicacionWebBuscar.Models;
+using AplicacionWebBuscar.Data;
 
 namespace AplicacionWebBuscar.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly WebAppContext _context;
+        public HomeController(WebAppContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            DateTime fecha = DateTime.Today.AddDays(-7);
+            var Formulario = _context.Formularios.Where(x => x.FecRes > fecha).ToList();
+            return View(Formulario);
+        }
+
+        public IActionResult Formulario()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Formulario(Formulario f)
+        {
+            if(ModelState.IsValid){
+                _context.Add(f);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(f);
         }
 
         public IActionResult Privacy()
