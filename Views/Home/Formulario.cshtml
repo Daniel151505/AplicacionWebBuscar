@@ -1,0 +1,86 @@
+@model Formulario;
+
+@{
+    ViewData["Title"] = "Registrar Productos";
+}
+
+<br>
+
+<section class="contact-box" style="background-color: white" >
+    <div class="row no-gutters bg-dark">
+        <div class="col-xl-5 col-lg-12 register-bg">
+        </div>
+        <div class="col-xl-7 col-lg-12 d-flex">
+             <div class="container align-self-center p-6" >
+                 <h1 class="font-weight-bold mb-3" style="color: black;">Completa el formulario</h1>
+                 <br>
+                
+                 <form action="" method="post">
+              
+                     <div class="form-group mb-3">
+                         <label  class="font-weight-bold" style="color: black;" asp-for="Nombre">Nombre del producto:<span class="text-danger">*</span></label>
+                         <input type="text" asp-for="Nombre" class="form-control">
+                          <span asp-validation-for="Nombre" class="text-danger"></span>
+                     </div>
+                     <br><br>
+                     <div class="form-group mb-3">
+                         <label  class="font-weight-bold" style="color: black;" asp-for="Url">Imagen del Producto<span class="text-danger">*</span></label>
+                         <br>
+                         <input type="file" asp-for="Url"  style="color: black;">
+                          <span asp-validation-for="Url" class="text-danger"></span>
+                     </div>
+                     <br>
+                     <br>
+                     <div class="form-group mb-3">
+                         <label  class="font-weight-bold" style="color: black;" asp-for="Descripcion">Descripción de la publicación:<span class="text-danger">*</span></label>
+                         <textarea asp-for="Descripcion" class="form-control"></textarea>
+                          <span asp-validation-for="Descripcion" class="text-danger"></span>
+                     </div>
+                     <br>
+                     <br>
+                      <div class="form-group mb-3">
+                        <label class="font-weight-bold" style="color: black;" asp-for="Precio">Precio del Producto:<span class="text-danger">*</span></label>
+                        <input type="text" asp-for="Precio" class="form-control">
+                         <span asp-validation-for="Precio" class="text-danger"></span>
+                      </div>
+                     <br>
+                     <br>
+                     <div class="form-group mb-3">
+                        <label class="font-weight-bold" style="color: black;" asp-for="Celular">Celular<span class="text-danger">*</span></label>
+                        <input type="text" asp-for="Celular" class="form-control">
+                         <span asp-validation-for="Celular" class="text-danger"></span>
+                     </div>
+                     <br>
+                     <br>
+                     <div class="form-group mb-3">
+                        <label class="font-weight-bold" style="color: black;" asp-for="Lugar">Lugar<span class="text-danger">*</span></label>
+                        <input type="text" asp-for="Lugar" class="form-control">
+                         <span asp-validation-for="Lugar" class="text-danger"></span>
+                     </div>
+                     <br>
+                     <br>
+                     <div class="form-group mb-3">
+                        <label class="font-weight-bold" style="color: black;" asp-for="NomUsu">Nombre del Usuario<span class="text-danger">*</span></label>
+                        <input type="text" asp-for="NomUsu" class="form-control">
+                         <span asp-validation-for="NomUsu" class="text-danger"></span>
+                     </div>
+                      <br>
+                     <br>
+                     <div class="form-group mb-3">
+                        <label class="font-weight-bold" style="color: black;" asp-for="FecRes">Fecha de Registro<span class="text-danger">*</span></label>
+                        <input type="date" asp-for="FecRes" class="form-control">
+                         <span asp-validation-for="FecRes" class="text-danger"></span>
+                     </div>
+                      
+
+
+
+                   <div style="text-align: center;">
+                               <button class="btn btn-primary width-100" type="submit" style="background-color: #00488F;">Regístrar</button>
+                   </div>
+             
+                 </form>
+             </div>
+        </div>
+    </div>
+</section>
